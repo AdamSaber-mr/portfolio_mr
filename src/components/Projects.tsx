@@ -98,8 +98,8 @@ export function Projects() {
       ],
       status: 'Voltooid',
       statusColor: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
-      liveUrl: 'https://adamsaber-mr.github.io/portofolio_mr/',
-      githubUrl: 'https://github.com/AdamSaber-mr/portofolio_mr',
+      liveUrl: 'https://adamsaber-mr.github.io/portfolio_mr/',
+      githubUrl: 'https://github.com/AdamSaber-mr/portfolio_mr',
     },
   ];
 

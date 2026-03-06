@@ -1,11 +1,16 @@
 
-  # Portfolio website creation
+# Adam Saber Portfolio
 
-  This is a code bundle for Portfolio website creation. The original project is available at https://www.figma.com/design/jmI8zQ5Btpkz45gnkfX5Hy/Portfolio-website-creation.
+Persoonlijke portfolio website gebouwd met React, Vite en TypeScript.
 
-  ## Running the code
+## Scripts
 
-  Run `npm i` to install the dependencies.
+- `npm install`: installeer dependencies
+- `npm run dev`: start lokale development server
+- `npm run build`: maak production build in `build/`
+- `npm run preview`: preview de production build lokaal
 
-  Run `npm run dev` to start the development server.
+## Live
+
+- GitHub Pages: [https://adamsaber-mr.github.io/portfolio_mr/](https://adamsaber-mr.github.io/portfolio_mr/)
   
