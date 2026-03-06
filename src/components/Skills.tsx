@@ -1,45 +1,39 @@
 import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
-import { Code2, Database, Brain, Users, Server } from 'lucide-react';
+import { Code2, Lightbulb, Users, Server } from 'lucide-react';
 
 export function Skills() {
   const [ref, isInView] = useInView();
 
   const skillCategories = [
     {
-      title: 'AI & Machine Learning',
-      icon: Brain,
-      color: 'from-purple-500 to-pink-500',
-      skills: [
-        { name: 'Python', level: 60, learning: true },
-        { name: 'Machine Learning', level: 40, learning: true },
-        { name: 'Data Science', level: 35, learning: true },
-      ],
-    },
-    {
       title: 'Backend Development',
       icon: Server,
       color: 'from-blue-500 to-purple-500',
+      hoverGlow: 'from-blue-500/20 to-purple-500/20',
       skills: [
         { name: 'PHP', level: 75 },
-        { name: 'JavaScript', level: 70 },
-        { name: 'SQL/MariaDB', level: 70 },
+        { name: 'SQL / MySQL / MariaDB', level: 70 },
+        { name: 'Python (Data-analyse)', level: 45, learning: true },
       ],
     },
     {
       title: 'Front-End Development',
       icon: Code2,
       color: 'from-cyan-500 to-blue-500',
+      hoverGlow: 'from-cyan-500/20 to-blue-500/20',
       skills: [
-        { name: 'HTML/CSS', level: 85 },
+        { name: 'HTML / CSS', level: 85 },
         { name: 'JavaScript', level: 80 },
-        { name: 'UI/UX Design', level: 75 },
+        { name: 'React / TypeScript', level: 65 },
+        { name: 'UI / UX Design', level: 70 },
       ],
     },
     {
       title: 'Soft Skills',
       icon: Users,
       color: 'from-green-500 to-emerald-500',
+      hoverGlow: 'from-green-500/20 to-emerald-500/20',
       skills: [
         { name: 'Communicatie', level: 85 },
         { name: 'Samenwerken', level: 85 },
@@ -47,17 +41,35 @@ export function Skills() {
         { name: 'Probleem Oplossen', level: 90 },
       ],
     },
+    {
+      title: 'In ontwikkeling',
+      icon: Lightbulb,
+      color: 'from-amber-500 to-orange-500',
+      hoverGlow: 'from-amber-500/20 to-orange-500/20',
+      skills: [
+        { name: 'Next.js', level: 40, learning: true },
+        { name: 'API Development', level: 45, learning: true },
+        { name: 'Git / GitHub', level: 65, learning: true },
+      ],
+    },
   ];
 
   return (
-    <section id="skills" className="py-16 sm:py-20 px-4 sm:px-6 bg-white dark:bg-slate-900">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6 bg-white dark:bg-slate-900 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-50/50 dark:bg-purple-950/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+      <div className="max-w-6xl mx-auto relative">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-600" />
+            <span className="text-blue-600 dark:text-blue-400 font-medium text-sm tracking-wider uppercase">Vaardigheden</span>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-600" />
+          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
             Mijn{' '}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -69,46 +81,66 @@ export function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-5 sm:gap-8">
+        <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+              whileHover={{ y: -4 }}
+              className="relative group h-full"
             >
-              <div className="flex items-center gap-3 mb-5 sm:mb-6">
-                <div className={`p-2.5 sm:p-3 bg-gradient-to-br ${category.color} rounded-lg flex-shrink-0`}>
-                  <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-white">{category.title}</h3>
-              </div>
-
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex justify-between mb-2 gap-2">
-                      <span className="text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium flex items-center gap-2 flex-wrap">
-                        {skill.name}
-                        {skill.learning && (
-                          <span className="text-xs bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 px-2 py-1 rounded-full whitespace-nowrap">
-                            In ontwikkeling
-                          </span>
-                        )}
-                      </span>
-                      <span className="text-slate-500 dark:text-slate-400 text-sm flex-shrink-0">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.level}%` } : {}}
-                        transition={{ duration: 1, delay: categoryIndex * 0.1 + skillIndex * 0.1 }}
-                        className={`h-full bg-gradient-to-r ${category.color} rounded-full`}
-                      />
-                    </div>
+              {/* Subtle glow on hover - uses matching color */}
+              <div className={`absolute -inset-[1px] bg-gradient-to-br ${category.hoverGlow} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]`} />
+              
+              <div className="relative bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-800 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50 h-full flex flex-col">
+                <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                  <div className={`p-2.5 sm:p-3 bg-gradient-to-br ${category.color} rounded-xl flex-shrink-0 shadow-sm`}>
+                    <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                ))}
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-white">{category.title}</h3>
+                </div>
+
+                <div className="space-y-4 flex-1">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex}>
+                      <div className="flex justify-between mb-2 gap-2">
+                        <span className="text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium flex items-center gap-2 flex-wrap">
+                          {skill.name}
+                          {skill.learning && (
+                            <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-full whitespace-nowrap">
+                              Leren
+                            </span>
+                          )}
+                        </span>
+                        <motion.span
+                          className="text-slate-500 dark:text-slate-400 text-sm flex-shrink-0 tabular-nums"
+                          initial={{ opacity: 0 }}
+                          animate={isInView ? { opacity: 1 } : {}}
+                          transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.1 + 0.5 }}
+                        >
+                          {skill.level}%
+                        </motion.span>
+                      </div>
+                      <div className="h-2.5 bg-slate-100 dark:bg-slate-700/50 rounded-full overflow-hidden relative">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={isInView ? { width: `${skill.level}%` } : {}}
+                          transition={{ duration: 1.2, delay: categoryIndex * 0.1 + skillIndex * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                          className={`h-full bg-gradient-to-r ${category.color} rounded-full relative`}
+                        >
+                          {/* Shimmer effect */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
+                            animate={{ x: ['-100%', '200%'] }}
+                            transition={{ duration: 2, delay: 1.5 + categoryIndex * 0.2, repeat: Infinity, repeatDelay: 5 }}
+                          />
+                        </motion.div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -118,12 +150,14 @@ export function Skills() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-10 sm:mt-12 text-center bg-blue-50 dark:bg-slate-800 p-5 sm:p-6 rounded-2xl border border-blue-100 dark:border-slate-700"
+          className="mt-10 sm:mt-12 text-center"
         >
-          <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-            🎯 <span className="font-semibold">Huidige focus:</span> Dagelijks bezig met Python cursus (6/12 uur voltooid)
-            en het verdiepen in AI/ML concepten
-          </p>
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 px-6 py-4 rounded-2xl border border-blue-100/80 dark:border-slate-700/50 shadow-sm">
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 animate-pulse" />
+            <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+              <span className="font-semibold">Huidige focus:</span> Full-Stack Web Development (PHP/JS/SQL) en bouwen aan praktische webapp projecten.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

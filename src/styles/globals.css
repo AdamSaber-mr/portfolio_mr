@@ -182,4 +182,16 @@
 
 html {
   font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(99, 102, 241, 0.2);
+  color: inherit;
 }

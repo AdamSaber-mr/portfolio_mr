@@ -4,10 +4,6 @@
   import path from 'path';
 
   export default defineConfig({
-    base: '/portofolio_mr/',
-    build: {
-      outDir: 'build',
-    },
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -52,6 +48,10 @@
         '@radix-ui/react-accordion@1.2.3': '@radix-ui/react-accordion',
         '@': path.resolve(__dirname, './src'),
       },
+    },
+    build: {
+      target: 'esnext',
+      outDir: 'build',
     },
     server: {
       port: 3000,

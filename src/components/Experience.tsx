@@ -1,19 +1,27 @@
 import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
-import { Briefcase, GraduationCap, ShoppingBag } from 'lucide-react';
+import { Briefcase, GraduationCap, ShoppingBag, ArrowRight } from 'lucide-react';
 
 export function Experience() {
   const [ref, isInView] = useInView();
 
   return (
-    <section id="experience" className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900">
-      <div className="max-w-6xl mx-auto">
+    <section id="experience" className="py-20 sm:py-28 px-4 sm:px-6 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-72 h-72 bg-purple-200/20 dark:bg-purple-900/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-200/20 dark:bg-blue-900/10 rounded-full blur-3xl" />
+
+      <div className="max-w-6xl mx-auto relative">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-600" />
+            <span className="text-blue-600 dark:text-blue-400 font-medium text-sm tracking-wider uppercase">Ervaring</span>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-600" />
+          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
             Mijn{' '}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -28,40 +36,44 @@ export function Experience() {
         <div className="space-y-6 sm:space-y-8">
           {/* Education */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white dark:bg-slate-800 p-5 sm:p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+            whileHover={{ y: -3 }}
+            className="relative group"
           >
-            <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
-              <div className="flex-shrink-0">
-                <div className="p-3 sm:p-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl">
-                  <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                </div>
-              </div>
-              <div className="flex-1">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Software Development</h3>
-                    <p className="text-blue-600 dark:text-blue-400 font-medium">Grafische Lyceum Rotterdam</p>
+            <div className="absolute -inset-[1px] bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-[1px]" />
+            <div className="relative bg-white dark:bg-slate-800 p-5 sm:p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50">
+              <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
+                <div className="flex-shrink-0">
+                  <div className="p-3 sm:p-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl shadow-sm shadow-blue-500/20">
+                    <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <span className="text-slate-500 dark:text-slate-400 text-sm mt-2 md:mt-0">2023 - Heden (Jaar 2)</span>
                 </div>
-                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
-                  Volledige MBO opleiding in Software Development, met focus op zowel front-end als backend
-                  ontwikkeling. Bezig met het opbouwen van een breed fundament in programmeren en
-                  softwareontwikkeling.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs sm:text-sm">
-                    Jaar 1: Front-End (HTML, CSS, JS, PHP)
-                  </span>
-                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs sm:text-sm">
-                    Jaar 2: Backend & Databases
-                  </span>
-                  <span className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs sm:text-sm">
-                    Huidige focus: AI/ML & Python
-                  </span>
+                <div className="flex-1">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Software Development</h3>
+                      <p className="text-blue-600 dark:text-blue-400 font-medium">Grafisch Lyceum Rotterdam</p>
+                    </div>
+                    <span className="text-slate-500 dark:text-slate-400 text-sm mt-2 md:mt-0 bg-slate-50 dark:bg-slate-700/50 px-3 py-1 rounded-full">2023 - Heden (Jaar 2)</span>
+                  </div>
+                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                    Volledige MBO opleiding in Software Development, met focus op zowel front-end als backend
+                    ontwikkeling. Bezig met het opbouwen van een breed fundament in programmeren en
+                    softwareontwikkeling.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1.5 bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 rounded-lg text-xs sm:text-sm font-medium border border-blue-100/80 dark:border-blue-900/50">
+                      Jaar 1: Front-End (HTML, CSS, JS, PHP)
+                    </span>
+                    <span className="px-3 py-1.5 bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-300 rounded-lg text-xs sm:text-sm font-medium border border-purple-100/80 dark:border-purple-900/50">
+                      Jaar 2: Backend & Databases
+                    </span>
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 text-blue-700 dark:text-blue-300 rounded-lg text-xs sm:text-sm font-medium border border-blue-100/80 dark:border-blue-900/50">
+                      Huidige focus: Full-Stack Web Development (PHP/JS/SQL)
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -69,58 +81,48 @@ export function Experience() {
 
           {/* Work Experience */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white dark:bg-slate-800 p-5 sm:p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+            whileHover={{ y: -3 }}
+            className="relative group"
           >
-            <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
-              <div className="flex-shrink-0">
-                <div className="p-3 sm:p-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl">
-                  <ShoppingBag className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <div className="absolute -inset-[1px] bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-[1px]" />
+            <div className="relative bg-white dark:bg-slate-800 p-5 sm:p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50">
+              <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
+                <div className="flex-shrink-0">
+                  <div className="p-3 sm:p-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl shadow-sm shadow-green-500/20">
+                    <ShoppingBag className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  </div>
                 </div>
-              </div>
-              <div className="flex-1">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Verkoopmedewerker</h3>
-                    <p className="text-green-600 dark:text-green-400 font-medium">Van Haren (Schoenenwinkel)</p>
-                  </div>
-                  <span className="text-slate-500 dark:text-slate-400 text-sm mt-2 md:mt-0">1 jaar</span>
-                </div>
-                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
-                  Werkzaam als verkoopmedewerker waarbij ik waardevolle ervaring heb opgedaan in klantcontact,
-                  teamwork en commerciële vaardigheden. Deze ervaring heeft me veel geleerd over communicatie
-                  en samenwerken in een professionele omgeving.
-                </p>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                <div className="flex-1">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
                     <div>
-                      <p className="font-medium text-sm sm:text-base text-slate-800 dark:text-white">Communicatie</p>
-                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Effectief communiceren met klanten en collega's</p>
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Verkoopmedewerker</h3>
+                      <p className="text-green-600 dark:text-green-400 font-medium">Van Haren (Schoenenwinkel)</p>
                     </div>
+                    <span className="text-slate-500 dark:text-slate-400 text-sm mt-2 md:mt-0 bg-slate-50 dark:bg-slate-700/50 px-3 py-1 rounded-full">1 jaar</span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-sm sm:text-base text-slate-800 dark:text-white">Verkoopstrategieën</p>
-                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Klantbehoeften identificeren en adviseren</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-sm sm:text-base text-slate-800 dark:text-white">Samenwerken</p>
-                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Effectief teamwork in drukke omgeving</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-sm sm:text-base text-slate-800 dark:text-white">Klantcontact</p>
-                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Professionele en vriendelijke service</p>
-                    </div>
+                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                    Werkzaam als verkoopmedewerker waarbij ik waardevolle ervaring heb opgedaan in klantcontact,
+                    teamwork en commerciële vaardigheden. Deze ervaring heeft me veel geleerd over communicatie
+                    en samenwerken in een professionele omgeving.
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {[
+                      { title: 'Communicatie', desc: 'Effectief communiceren met klanten en collega\'s' },
+                      { title: 'Verkoopstrategieën', desc: 'Klantbehoeften identificeren en adviseren' },
+                      { title: 'Samenwerken', desc: 'Effectief teamwork in drukke omgeving' },
+                      { title: 'Klantcontact', desc: 'Professionele en vriendelijke service' },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mt-2 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-sm sm:text-base text-slate-800 dark:text-white">{item.title}</p>
+                          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -132,30 +134,47 @@ export function Experience() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 sm:p-8 rounded-2xl shadow-lg text-white"
+            className="relative group"
           >
-            <div className="flex flex-col md:flex-row gap-4 sm:gap-6 items-center">
-              <div className="flex-shrink-0">
-                <div className="p-3 sm:p-4 bg-white/20 backdrop-blur rounded-xl">
-                  <Briefcase className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                </div>
+            {/* Glow effect */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity" />
+            
+            <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 p-6 sm:p-8 rounded-2xl shadow-xl text-white overflow-hidden">
+              {/* Decorative pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
               </div>
-              <div className="flex-1 text-center md:text-left">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2">Op zoek naar een Stage</h3>
-                <p className="text-sm sm:text-base text-blue-100 dark:text-blue-200 mb-4 leading-relaxed">
-                  Ik ben actief op zoek naar een stageplek waar ik me verder kan ontwikkelen in{' '}
-                  <span className="font-semibold text-white">AI/Machine Learning en Backend Development</span>.
-                  Een plek waar uitdaging en groei centraal staan.
-                </p>
-                <button
-                  onClick={() => {
-                    const element = document.getElementById('contact');
-                    if (element) element.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="px-6 py-3 bg-white text-blue-600 rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all"
-                >
-                  Neem contact op
-                </button>
+
+              <div className="flex flex-col md:flex-row gap-4 sm:gap-6 items-center relative">
+                <div className="flex-shrink-0">
+                  <motion.div
+                    className="p-3 sm:p-4 bg-white/20 backdrop-blur-sm rounded-xl border border-white/10"
+                    animate={{ rotate: [0, 5, -5, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    <Briefcase className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  </motion.div>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2">Op zoek naar een Full-Stack Stage</h3>
+                  <p className="text-sm sm:text-base text-blue-100 mb-5 leading-relaxed">
+                    Ik zoek een meewerkstage waar ik mij verder kan ontwikkelen in{' '}
+                    <span className="font-semibold text-white">Full-Stack Web Development (PHP, JavaScript en SQL)</span> en kan bijdragen aan echte projecten binnen een team.
+                  </p>
+                  <motion.button
+                    onClick={() => {
+                      const element = document.getElementById('contact');
+                      if (element) element.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-xl font-medium shadow-lg shadow-blue-900/20 hover:shadow-xl transition-all group/btn"
+                    whileHover={{ scale: 1.03, y: -1 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    Neem contact op
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </motion.button>
+                </div>
               </div>
             </div>
           </motion.div>
