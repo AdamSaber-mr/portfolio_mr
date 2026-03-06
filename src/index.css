@@ -3748,3 +3748,17 @@ html {
     opacity: .5;
   }
 }
+
+html {
+  font-size: 15px;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}

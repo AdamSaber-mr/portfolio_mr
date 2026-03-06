@@ -1,162 +1,138 @@
 import { motion } from 'motion/react';
+import { Code2, Server, Users, Wrench } from 'lucide-react';
 import { useInView } from './hooks/useInView';
-import { Code2, Lightbulb, Users, Server } from 'lucide-react';
+
+type Skill = {
+  name: string;
+  level: 'Basis' | 'Goed' | 'Sterk';
+  progress: number;
+};
+
+type SkillGroup = {
+  title: string;
+  icon: typeof Code2;
+  skills: Skill[];
+};
+
+const skillGroups: SkillGroup[] = [
+  {
+    title: 'Back-end',
+    icon: Server,
+    skills: [
+      { name: 'PHP', level: 'Sterk', progress: 78 },
+      { name: 'SQL / MariaDB / MySQL', level: 'Goed', progress: 72 },
+      { name: 'API-koppelingen', level: 'Basis', progress: 52 },
+    ],
+  },
+  {
+    title: 'Front-end',
+    icon: Code2,
+    skills: [
+      { name: 'HTML / CSS', level: 'Sterk', progress: 84 },
+      { name: 'JavaScript', level: 'Goed', progress: 78 },
+      { name: 'React / TypeScript', level: 'Goed', progress: 68 },
+    ],
+  },
+  {
+    title: 'Samenwerking',
+    icon: Users,
+    skills: [
+      { name: 'Communicatie', level: 'Sterk', progress: 86 },
+      { name: 'Samenwerken', level: 'Sterk', progress: 84 },
+      { name: 'Klantcontact', level: 'Goed', progress: 77 },
+    ],
+  },
+  {
+    title: 'Nu aan het verdiepen',
+    icon: Wrench,
+    skills: [
+      { name: 'Next.js', level: 'Basis', progress: 48 },
+      { name: 'Testing', level: 'Basis', progress: 42 },
+      { name: 'Git workflows', level: 'Goed', progress: 66 },
+    ],
+  },
+];
+
+const levelClassMap: Record<Skill['level'], string> = {
+  Basis: 'bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200',
+  Goed: 'bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
+  Sterk: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300',
+};
 
 export function Skills() {
   const [ref, isInView] = useInView();
 
-  const skillCategories = [
-    {
-      title: 'Backend Development',
-      icon: Server,
-      color: 'from-blue-500 to-purple-500',
-      hoverGlow: 'from-blue-500/20 to-purple-500/20',
-      skills: [
-        { name: 'PHP', level: 75 },
-        { name: 'SQL / MySQL / MariaDB', level: 70 },
-        { name: 'Python (Data-analyse)', level: 45, learning: true },
-      ],
-    },
-    {
-      title: 'Front-End Development',
-      icon: Code2,
-      color: 'from-cyan-500 to-blue-500',
-      hoverGlow: 'from-cyan-500/20 to-blue-500/20',
-      skills: [
-        { name: 'HTML / CSS', level: 85 },
-        { name: 'JavaScript', level: 80 },
-        { name: 'React / TypeScript', level: 65 },
-        { name: 'UI / UX Design', level: 70 },
-      ],
-    },
-    {
-      title: 'Soft Skills',
-      icon: Users,
-      color: 'from-green-500 to-emerald-500',
-      hoverGlow: 'from-green-500/20 to-emerald-500/20',
-      skills: [
-        { name: 'Communicatie', level: 85 },
-        { name: 'Samenwerken', level: 85 },
-        { name: 'Klantcontact', level: 80 },
-        { name: 'Probleem Oplossen', level: 90 },
-      ],
-    },
-    {
-      title: 'In ontwikkeling',
-      icon: Lightbulb,
-      color: 'from-amber-500 to-orange-500',
-      hoverGlow: 'from-amber-500/20 to-orange-500/20',
-      skills: [
-        { name: 'Next.js', level: 40, learning: true },
-        { name: 'API Development', level: 45, learning: true },
-        { name: 'Git / GitHub', level: 65, learning: true },
-      ],
-    },
-  ];
-
   return (
-    <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6 bg-white dark:bg-slate-900 relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-50/50 dark:bg-purple-950/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-
-      <div className="max-w-6xl mx-auto relative">
+    <section id="skills" className="py-16 sm:py-20 px-4 sm:px-6 bg-slate-50 dark:bg-slate-900">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10 sm:mb-12"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-600" />
-            <span className="text-blue-600 dark:text-blue-400 font-medium text-sm tracking-wider uppercase">Vaardigheden</span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-600" />
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="h-px w-10 bg-slate-300 dark:bg-slate-700" />
+            <span className="text-blue-600 dark:text-blue-400 font-medium text-xs sm:text-sm tracking-wider uppercase">Vaardigheden</span>
+            <div className="h-px w-10 bg-slate-300 dark:bg-slate-700" />
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
-            Mijn{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Vaardigheden
-            </span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+            Mijn vaardigheden
           </h2>
-          <p className="text-center text-slate-600 dark:text-slate-400 mb-12 sm:mb-16 max-w-2xl mx-auto">
-            Een combinatie van technische expertise en soft skills opgebouwd door studie en werk
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+            Praktische mix van front-end, back-end en samenwerking, opgebouwd in school- en echte projecten.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={categoryIndex}
-              initial={{ opacity: 0, y: 30 }}
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
+          {skillGroups.map((group, groupIndex) => (
+            <motion.article
+              key={group.title}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              whileHover={{ y: -4 }}
-              className="relative group h-full"
+              transition={{ duration: 0.45, delay: groupIndex * 0.08 }}
+              className="rounded-xl border border-slate-200/80 dark:border-slate-700/80 bg-white dark:bg-slate-800 p-4 sm:p-5"
             >
-              {/* Subtle glow on hover - uses matching color */}
-              <div className={`absolute -inset-[1px] bg-gradient-to-br ${category.hoverGlow} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]`} />
-              
-              <div className="relative bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-800 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-5 sm:mb-6">
-                  <div className={`p-2.5 sm:p-3 bg-gradient-to-br ${category.color} rounded-xl flex-shrink-0 shadow-sm`}>
-                    <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-white">{category.title}</h3>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300">
+                  <group.icon className="w-4 h-4" />
                 </div>
-
-                <div className="space-y-4 flex-1">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex}>
-                      <div className="flex justify-between mb-2 gap-2">
-                        <span className="text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium flex items-center gap-2 flex-wrap">
-                          {skill.name}
-                          {skill.learning && (
-                            <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-full whitespace-nowrap">
-                              Leren
-                            </span>
-                          )}
-                        </span>
-                        <motion.span
-                          className="text-slate-500 dark:text-slate-400 text-sm flex-shrink-0 tabular-nums"
-                          initial={{ opacity: 0 }}
-                          animate={isInView ? { opacity: 1 } : {}}
-                          transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.1 + 0.5 }}
-                        >
-                          {skill.level}%
-                        </motion.span>
-                      </div>
-                      <div className="h-2.5 bg-slate-100 dark:bg-slate-700/50 rounded-full overflow-hidden relative">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={isInView ? { width: `${skill.level}%` } : {}}
-                          transition={{ duration: 1.2, delay: categoryIndex * 0.1 + skillIndex * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                          className={`h-full bg-gradient-to-r ${category.color} rounded-full relative`}
-                        >
-                          {/* Shimmer effect */}
-                          <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
-                            animate={{ x: ['-100%', '200%'] }}
-                            transition={{ duration: 2, delay: 1.5 + categoryIndex * 0.2, repeat: Infinity, repeatDelay: 5 }}
-                          />
-                        </motion.div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">{group.title}</h3>
               </div>
-            </motion.div>
+
+              <ul className="space-y-4">
+                {group.skills.map((skill) => (
+                  <li key={skill.name}>
+                    <div className="flex items-center justify-between gap-3 mb-2">
+                      <span className="text-sm sm:text-base text-slate-700 dark:text-slate-200 font-medium">{skill.name}</span>
+                      <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${levelClassMap[skill.level]}`}>
+                        {skill.level}
+                      </span>
+                    </div>
+                    <div className="h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={isInView ? { width: `${skill.progress}%` } : {}}
+                        transition={{ duration: 0.7, delay: 0.15 + groupIndex * 0.08 }}
+                        className="h-full rounded-full bg-gradient-to-r from-blue-600 to-purple-600"
+                      />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.article>
           ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-10 sm:mt-12 text-center"
+          transition={{ duration: 0.45, delay: 0.35 }}
+          className="mt-8 sm:mt-10"
         >
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 px-6 py-4 rounded-2xl border border-blue-100/80 dark:border-slate-700/50 shadow-sm">
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 animate-pulse" />
-            <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-              <span className="font-semibold">Huidige focus:</span> Full-Stack Web Development (PHP/JS/SQL) en bouwen aan praktische webapp projecten.
-            </p>
+          <div className="rounded-xl border border-blue-100 dark:border-slate-700 bg-blue-50/70 dark:bg-slate-800 px-4 py-3 sm:px-5 sm:py-4 text-sm sm:text-base text-slate-700 dark:text-slate-300">
+            <span className="font-semibold">Huidige focus:</span> Full-Stack webdevelopment met PHP, JavaScript en SQL, met nadruk op praktische projecten.
           </div>
         </motion.div>
       </div>
