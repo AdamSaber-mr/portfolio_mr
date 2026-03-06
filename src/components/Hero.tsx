@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { ChevronDown, Sparkles } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 function TypingText({ texts, className }: { texts: string[]; className?: string }) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -84,25 +84,6 @@ export function Hero() {
       </div>
 
       <div className="max-w-5xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.div
-            className="inline-flex items-center gap-2 bg-blue-100/80 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 px-5 py-2.5 rounded-full mb-8 backdrop-blur-sm border border-blue-200/50 dark:border-blue-800/50"
-            whileHover={{ scale: 1.05 }}
-          >
-            <motion.div
-              animate={{ rotate: [0, 15, -15, 0] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-            >
-              <Sparkles className="w-4 h-4" />
-            </motion.div>
-            <span className="text-sm font-medium">Open voor Full-Stack stage (PHP/JS/SQL)</span>
-          </motion.div>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

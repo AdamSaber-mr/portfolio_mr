@@ -13,7 +13,6 @@ export function Journey() {
       description: 'HTML, CSS, JavaScript, PHP - UI/UX design en implementatie',
       learning: 'Ontdekte dat ik meer uitdaging nodig had',
       color: 'from-blue-400 to-cyan-400',
-      shadow: 'shadow-blue-400/20',
     },
     {
       year: 'Jaar 2',
@@ -22,7 +21,6 @@ export function Journey() {
       description: 'PHP, JavaScript, MariaDB (SQL) - Server-side logica en databases',
       learning: 'Vond de diepere technische uitdagingen waar ik naar zocht',
       color: 'from-purple-400 to-blue-400',
-      shadow: 'shadow-purple-400/20',
     },
     {
       year: 'Nu',
@@ -31,7 +29,6 @@ export function Journey() {
       description: 'PHP, JavaScript, MariaDB/SQL – complete webapps bouwen van UI tot database',
       learning: 'Focus op praktijk en echte applicaties',
       color: 'from-purple-600 to-pink-500',
-      shadow: 'shadow-purple-500/20',
     },
   ];
 
@@ -89,18 +86,12 @@ export function Journey() {
                 {/* Icon in center on the line with glow */}
                 <div className="absolute left-1/2 top-0 transform -translate-x-1/2 z-10">
                   <motion.div
-                    className={`p-3 sm:p-4 bg-gradient-to-br ${step.color} rounded-full shadow-lg ${step.shadow}`}
+                    className={`p-3 sm:p-4 bg-gradient-to-br ${step.color} rounded-full shadow-md`}
                     animate={isInView ? { scale: [0, 1.1, 1] } : {}}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
                   >
                     <step.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </motion.div>
-                  {/* Glow ring */}
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br ${step.color} rounded-full blur-md -z-10`}
-                    animate={{ opacity: [0.2, 0.5, 0.2], scale: [1, 1.3, 1] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-                  />
                 </div>
 
                 {/* Card */}
@@ -117,8 +108,7 @@ export function Journey() {
                       </div>
                       <h3 className="text-xl sm:text-2xl font-bold mb-3 text-slate-800 dark:text-white">{step.title}</h3>
                       <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-3 leading-relaxed">{step.description}</p>
-                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 italic leading-relaxed flex items-center gap-1.5 justify-start">
-                        <span className="inline-block w-4 h-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center text-[10px]">💡</span>
+                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 italic leading-relaxed">
                         {step.learning}
                       </p>
                     </motion.div>

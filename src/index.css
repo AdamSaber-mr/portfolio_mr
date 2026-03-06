@@ -3750,11 +3750,11 @@ html {
 }
 
 html {
-  zoom: 0.9;
+  zoom: 0.8;
 }
 
-@supports not (zoom: 0.9) {
+@supports not (zoom: 0.8) {
   html {
-    font-size: 90%;
+    font-size: 80%;
   }
 }
