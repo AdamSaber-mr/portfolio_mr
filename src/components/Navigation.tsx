@@ -58,10 +58,10 @@ export function Navigation() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-14 sm:h-16">
+          <div className="flex justify-between items-center h-16">
             <motion.button
               onClick={() => scrollToSection('hero')}
-              className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative"
+              className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -74,7 +74,7 @@ export function Navigation() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative px-2.5 py-1.5 text-xs lg:text-sm transition-colors duration-300 rounded-lg ${
+                  className={`relative px-3 py-2 text-sm transition-colors duration-300 rounded-lg ${
                     activeSection === item.id
                       ? 'text-blue-600 dark:text-blue-400'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -129,7 +129,6 @@ export function Navigation() {
               className="md:hidden p-2 z-50 relative rounded-lg"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
-              aria-expanded={isMobileMenuOpen}
               whileTap={{ scale: 0.9 }}
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -170,12 +169,18 @@ export function Navigation() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl"
           >
+            {/* Decorative background */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-20 -left-20 w-72 h-72 bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-20 -right-20 w-72 h-72 bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-3xl" />
+            </div>
+
             <motion.div
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="flex flex-col items-center justify-start h-full px-5 pt-20 pb-6 space-y-1 relative overflow-y-auto"
+              className="flex flex-col items-center justify-center h-full px-8 space-y-1 relative"
             >
               {navItems.map((item, index) => (
                 <motion.button
@@ -184,7 +189,7 @@ export function Navigation() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.4, delay: 0.05 + index * 0.05 }}
                   onClick={() => scrollToSection(item.id)}
-                  className={`w-full text-center py-3 text-lg font-semibold transition-colors rounded-xl ${
+                  className={`w-full text-center py-4 text-2xl font-semibold transition-colors rounded-2xl ${
                     activeSection === item.id
                       ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30'
                       : 'text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800'
@@ -203,7 +208,7 @@ export function Navigation() {
                 <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-600 to-transparent mb-4" />
                 <button
                   onClick={toggleTheme}
-                  className="w-full flex items-center justify-center gap-3 py-3 text-base font-semibold text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800"
+                  className="w-full flex items-center justify-center gap-3 py-4 text-xl font-semibold text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800"
                 >
                   {theme === 'light' ? (
                     <>

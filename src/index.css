@@ -3750,15 +3750,11 @@ html {
 }
 
 html {
-  font-size: 15px;
+  zoom: 0.9;
 }
 
-@media (max-width: 640px) {
+@supports not (zoom: 0.9) {
   html {
-    font-size: 14px;
+    font-size: 90%;
   }
-}
-
-body {
-  overflow-x: hidden;
 }
