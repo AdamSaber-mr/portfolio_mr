@@ -93,13 +93,13 @@ export function Contact() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-blue-200 dark:bg-blue-900/50" />
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-600" />
             <span className="text-blue-600 dark:text-blue-400 font-medium text-sm tracking-wider uppercase">Contact</span>
-            <div className="h-px w-12 bg-blue-200 dark:bg-blue-900/50" />
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-600" />
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
             Neem{' '}
-            <span className="text-blue-600 dark:text-blue-400">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Contact Op
             </span>
           </h2>
@@ -126,7 +126,7 @@ export function Contact() {
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="flex items-start gap-3 sm:gap-4 group"
                 >
-                  <div className="p-2.5 sm:p-3 bg-blue-100 dark:bg-blue-900/40 rounded-xl flex-shrink-0 group-hover:shadow-md transition-shadow">
+                  <div className="p-2.5 sm:p-3 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 rounded-xl flex-shrink-0 group-hover:shadow-md transition-shadow">
                     <info.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
@@ -148,10 +148,10 @@ export function Contact() {
             </div>
 
             <div className="relative group">
-              <div className="absolute -inset-[1px] bg-blue-200/80 dark:bg-blue-900/30 rounded-2xl opacity-10 group-hover:opacity-20 transition-opacity" />
-              <div className="relative bg-blue-50/80 dark:bg-slate-800 p-5 sm:p-6 rounded-2xl border border-blue-100/50 dark:border-slate-700/50">
+              <div className="absolute -inset-[1px] bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl opacity-10 group-hover:opacity-20 transition-opacity blur-[1px]" />
+              <div className="relative bg-gradient-to-br from-blue-50/80 to-purple-50/80 dark:from-slate-800 dark:to-slate-800 p-5 sm:p-6 rounded-2xl border border-blue-100/50 dark:border-slate-700/50">
                 <h4 className="font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
-                  <span className="w-1.5 h-6 bg-purple-600 rounded-full" />
+                  <span className="w-1.5 h-6 bg-gradient-to-b from-blue-600 to-purple-600 rounded-full" />
                   Wat ik zoek in een stage:
                 </h4>
                 <ul className="space-y-3 text-slate-600 dark:text-slate-300">
@@ -168,7 +168,7 @@ export function Contact() {
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.5 + i * 0.1 }}
                     >
-                      <div className="p-0.5 bg-purple-600 rounded-full mt-1.5 flex-shrink-0">
+                      <div className="p-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-1.5 flex-shrink-0">
                         <Check className="w-3 h-3 text-white" />
                       </div>
                       <span className="text-sm sm:text-base leading-relaxed">{item}</span>
@@ -206,7 +206,7 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <div className="relative group/form">
-              <div className="absolute -inset-[1px] bg-blue-200/80 dark:bg-blue-900/30 rounded-2xl opacity-10 group-hover/form:opacity-20 transition-opacity" />
+              <div className="absolute -inset-[1px] bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl opacity-10 group-hover/form:opacity-20 transition-opacity blur-[1px]" />
               <div className="relative bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-100/80 dark:border-slate-700/50 shadow-sm">
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {[
@@ -263,14 +263,15 @@ export function Contact() {
                   <motion.button
                     type="submit"
                     disabled={submitState === 'sending'}
-                    className="group/btn w-full px-6 py-4 bg-purple-600 text-white rounded-xl font-medium hover:bg-purple-700 hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                    className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:shadow-xl hover:shadow-blue-500/25 transition-all flex items-center justify-center gap-2 relative overflow-hidden group/btn"
                     whileHover={{ scale: 1.01, y: -1 }}
                     whileTap={{ scale: 0.99 }}
                   >
-                    <span className="flex items-center gap-2">
+                    <span className="relative z-10 flex items-center gap-2">
                       <Send className="w-5 h-5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                       {submitState === 'sending' ? 'Versturen...' : 'Verstuur Bericht'}
                     </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                   </motion.button>
 
                   {submitState !== 'idle' && (
@@ -301,7 +302,7 @@ export function Contact() {
         >
           <p className="text-sm text-slate-500 dark:text-slate-400">
             © 2026 Adam Saber · Gebouwd met{' '}
-            <span className="text-purple-700 dark:text-purple-300 font-medium">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
               passie voor technologie
             </span>
           </p>

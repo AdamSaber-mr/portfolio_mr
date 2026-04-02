@@ -58,17 +58,17 @@ export function Hero() {
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 dark:bg-blue-900/20 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-72 h-72 bg-blue-400/15 dark:bg-blue-600/15 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], x: [0, 30, 0], y: [0, -20, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-200/25 dark:bg-purple-900/20 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/15 dark:bg-purple-600/15 rounded-full blur-3xl"
           animate={{ scale: [1, 1.15, 1], x: [0, -20, 0], y: [0, 30, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-slate-100/40 dark:bg-slate-800/40 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-400/5 to-purple-400/5 dark:from-blue-600/5 dark:to-purple-600/5 rounded-full blur-3xl"
           animate={{ scale: [1, 1.1, 1], rotate: [0, 180, 360] }}
           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
         />
@@ -92,11 +92,11 @@ export function Hero() {
         >
           Hallo, ik ben{' '}
           <span className="relative inline-block">
-            <span className="text-purple-600 dark:text-purple-400">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease-in-out_infinite]">
               Adam Saber
             </span>
             <motion.span
-              className="absolute -bottom-2 left-0 right-0 h-1 bg-purple-500 rounded-full"
+              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -134,11 +134,12 @@ export function Hero() {
         >
           <motion.button
             onClick={scrollToAbout}
-            className="w-full sm:w-auto px-8 py-4 bg-purple-600 text-white rounded-xl hover:bg-purple-700 hover:shadow-xl transition-all duration-300 font-medium"
+            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 font-medium relative overflow-hidden group"
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span>Ontdek mijn verhaal</span>
+            <span className="relative z-10">Ontdek mijn verhaal</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </motion.button>
           <motion.button
             onClick={() => {

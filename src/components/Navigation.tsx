@@ -61,7 +61,7 @@ export function Navigation() {
           <div className="flex justify-between items-center h-16">
             <motion.button
               onClick={() => scrollToSection('hero')}
-              className="text-xl font-bold text-slate-900 dark:text-white relative"
+              className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -205,7 +205,7 @@ export function Navigation() {
                 transition={{ duration: 0.4, delay: 0.05 + navItems.length * 0.05 }}
                 className="pt-4 w-full"
               >
-                <div className="h-px w-full bg-slate-200 dark:bg-slate-700 mb-4" />
+                <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-600 to-transparent mb-4" />
                 <button
                   onClick={toggleTheme}
                   className="w-full flex items-center justify-center gap-3 py-4 text-xl font-semibold text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800"

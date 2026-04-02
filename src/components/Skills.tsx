@@ -9,9 +9,8 @@ export function Skills() {
     {
       title: 'Backend Development',
       icon: Server,
-      iconBgColor: 'var(--color-blue-600)',
-      barColor: 'var(--color-blue-600)',
-      hoverGlow: 'color-mix(in oklab, var(--color-blue-200) 80%, transparent)',
+      color: 'from-blue-500 to-purple-500',
+      hoverGlow: 'from-blue-500/20 to-purple-500/20',
       skills: [
         { name: 'PHP', level: 75 },
         { name: 'SQL / MySQL / MariaDB', level: 70 },
@@ -21,9 +20,8 @@ export function Skills() {
     {
       title: 'Front-End Development',
       icon: Code2,
-      iconBgColor: 'var(--color-blue-700)',
-      barColor: 'var(--color-blue-700)',
-      hoverGlow: 'color-mix(in oklab, var(--color-blue-200) 70%, transparent)',
+      color: 'from-cyan-500 to-blue-500',
+      hoverGlow: 'from-cyan-500/20 to-blue-500/20',
       skills: [
         { name: 'HTML / CSS', level: 85 },
         { name: 'JavaScript', level: 80 },
@@ -34,9 +32,8 @@ export function Skills() {
     {
       title: 'Soft Skills',
       icon: Users,
-      iconBgColor: 'var(--color-blue-500)',
-      barColor: 'var(--color-blue-500)',
-      hoverGlow: 'color-mix(in oklab, var(--color-blue-100) 90%, transparent)',
+      color: 'from-green-500 to-emerald-500',
+      hoverGlow: 'from-green-500/20 to-emerald-500/20',
       skills: [
         { name: 'Communicatie', level: 85 },
         { name: 'Samenwerken', level: 85 },
@@ -47,9 +44,8 @@ export function Skills() {
     {
       title: 'In ontwikkeling',
       icon: Lightbulb,
-      iconBgColor: 'var(--color-blue-600)',
-      barColor: 'var(--color-blue-600)',
-      hoverGlow: 'color-mix(in oklab, var(--color-blue-100) 80%, transparent)',
+      color: 'from-amber-500 to-orange-500',
+      hoverGlow: 'from-amber-500/20 to-orange-500/20',
       skills: [
         { name: 'Next.js', level: 40, learning: true },
         { name: 'API Development', level: 45, learning: true },
@@ -70,13 +66,13 @@ export function Skills() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-blue-200 dark:bg-blue-900/50" />
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-600" />
             <span className="text-blue-600 dark:text-blue-400 font-medium text-sm tracking-wider uppercase">Vaardigheden</span>
-            <div className="h-px w-12 bg-blue-200 dark:bg-blue-900/50" />
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-600" />
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
             Mijn{' '}
-            <span className="text-blue-600 dark:text-blue-400">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Vaardigheden
             </span>
           </h2>
@@ -95,17 +91,12 @@ export function Skills() {
               whileHover={{ y: -4 }}
               className="relative group h-full"
             >
-              <div
-                className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ backgroundColor: category.hoverGlow }}
-              />
+              {/* Subtle glow on hover - uses matching color */}
+              <div className={`absolute -inset-[1px] bg-gradient-to-br ${category.hoverGlow} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]`} />
               
-              <div className="relative bg-slate-50 dark:bg-slate-800 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50 h-full flex flex-col">
+              <div className="relative bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-800 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50 h-full flex flex-col">
                 <div className="flex items-center gap-3 mb-5 sm:mb-6">
-                  <div
-                    className="p-2.5 sm:p-3 rounded-xl flex-shrink-0 shadow-sm"
-                    style={{ backgroundColor: category.iconBgColor }}
-                  >
+                  <div className={`p-2.5 sm:p-3 bg-gradient-to-br ${category.color} rounded-xl flex-shrink-0 shadow-sm`}>
                     <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-white">{category.title}</h3>
@@ -137,9 +128,15 @@ export function Skills() {
                           initial={{ width: 0 }}
                           animate={isInView ? { width: `${skill.level}%` } : {}}
                           transition={{ duration: 1.2, delay: categoryIndex * 0.1 + skillIndex * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                          className="h-full rounded-full"
-                          style={{ backgroundColor: category.barColor }}
-                        />
+                          className={`h-full bg-gradient-to-r ${category.color} rounded-full relative`}
+                        >
+                          {/* Shimmer effect */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
+                            animate={{ x: ['-100%', '200%'] }}
+                            transition={{ duration: 2, delay: 1.5 + categoryIndex * 0.2, repeat: Infinity, repeatDelay: 5 }}
+                          />
+                        </motion.div>
                       </div>
                     </div>
                   ))}
@@ -155,8 +152,8 @@ export function Skills() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-10 sm:mt-12 text-center"
         >
-          <div className="inline-flex items-center gap-3 bg-blue-50 dark:bg-slate-800 px-6 py-4 rounded-2xl border border-blue-100/80 dark:border-slate-700/50 shadow-sm">
-            <div className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 px-6 py-4 rounded-2xl border border-blue-100/80 dark:border-slate-700/50 shadow-sm">
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 animate-pulse" />
             <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
               <span className="font-semibold">Huidige focus:</span> Full-Stack Web Development (PHP/JS/SQL) en bouwen aan praktische webapp projecten.
             </p>
