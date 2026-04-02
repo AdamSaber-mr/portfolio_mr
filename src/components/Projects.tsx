@@ -1,6 +1,11 @@
 import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
-import { ExternalLink, Github, UtensilsCrossed, Globe, Car, ShoppingBag, ChefHat } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
+import rapidCarsImage from '../assets/projects/rapidcars.jpg';
+import yumeRamenImage from '../assets/projects/yume-ramen.jpg';
+import luxoraImage from '../assets/projects/luxora.jpg';
+import cookUpImage from '../assets/projects/cookup.jpg';
+import portfolioImage from '../assets/projects/portfolio.jpg';
 
 export function Projects() {
   const [ref, isInView] = useInView();
@@ -10,8 +15,10 @@ export function Projects() {
       title: 'RapidCars – Car Rental Website',
       type: 'Klantproject',
       category: 'Full-Stack',
-      icon: Car,
       gradient: 'from-blue-500 to-cyan-500',
+      image: rapidCarsImage,
+      imageAlt: 'Screenshot van de RapidCars website',
+      imageClassName: 'object-top',
       description: 'Moderne autoverhuur website voor een echte klant, gericht op het verhuren van sportieve auto\'s. Van klantgesprek tot ontwerp en oplevering volledig zelfstandig uitgevoerd.',
       tags: ['React', 'TypeScript', 'Vite', 'UI/UX Design', 'Klantproject'],
       highlights: [
@@ -29,8 +36,10 @@ export function Projects() {
       title: 'Yume Ramen Delivery App',
       type: 'Schoolproject',
       category: 'Full-Stack',
-      icon: UtensilsCrossed,
       gradient: 'from-purple-500 to-pink-500',
+      image: yumeRamenImage,
+      imageAlt: 'Screenshot van de Yume Ramen delivery app',
+      imageClassName: 'object-top',
       description: 'Full-stack food delivery webapp waarmee gebruikers ramen gerechten kunnen browsen, bestellen en afrekenen. Gebouwd met een mobile-first aanpak en een Japans-geïnspireerd design.',
       tags: ['PHP', 'MySQL', 'JavaScript', 'Python', 'Full-Stack'],
       highlights: [
@@ -48,8 +57,10 @@ export function Projects() {
       title: 'Luxora – Luxury Marketplace',
       type: 'Teamproject – Front-End Developer',
       category: 'Front-End',
-      icon: ShoppingBag,
       gradient: 'from-amber-500 to-orange-500',
+      image: luxoraImage,
+      imageAlt: 'Screenshot van de Luxora marketplace',
+      imageClassName: 'object-center',
       description: 'Marketplace voor exclusieve luxeproducten zoals villa\'s, horloges en jachten. Binnen dit teamproject was ik verantwoordelijk voor de volledige front-end ontwikkeling.',
       tags: ['React', 'TypeScript', 'Next.js', 'Front-End', 'Responsive UI'],
       highlights: [
@@ -67,8 +78,10 @@ export function Projects() {
       title: 'CookUp – Recipe Platform',
       type: 'Schoolproject',
       category: 'Back-End',
-      icon: ChefHat,
       gradient: 'from-green-500 to-emerald-500',
+      image: cookUpImage,
+      imageAlt: 'Screenshot van het CookUp platform',
+      imageClassName: 'object-center',
       description: 'Online platform dat jongeren inspireert om vaker zelf te koken. Gebruikers kunnen recepten ontdekken, delen en beheren via categorieën en een zoekfunctie.',
       tags: ['PHP', 'MySQL', 'JavaScript', 'CRUD', 'Authenticatie'],
       highlights: [
@@ -86,8 +99,10 @@ export function Projects() {
       title: 'Portfolio Website',
       type: 'Persoonlijk Project',
       category: 'Full-Stack',
-      icon: Globe,
       gradient: 'from-blue-600 to-purple-500',
+      image: portfolioImage,
+      imageAlt: 'Screenshot van de portfolio website',
+      imageClassName: 'object-top',
       description: 'Mijn persoonlijke portfolio website gebouwd met React, TypeScript en Vite. Bevat projecten, vaardigheden, ervaring en een contactsectie met dark/light mode.',
       tags: ['React', 'TypeScript', 'Vite', 'Responsive Design'],
       highlights: [
@@ -157,24 +172,27 @@ export function Projects() {
               <div className={`absolute -inset-[1px] bg-gradient-to-br ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-25 transition-opacity duration-500 blur-[1px]`} />
               
               <div className="relative bg-white dark:bg-slate-800 p-5 sm:p-6 rounded-2xl shadow-sm group-hover:shadow-xl transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50 h-full flex flex-col">
-                {/* Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className={`p-2.5 sm:p-3 bg-gradient-to-br ${project.gradient} rounded-xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 flex-shrink-0`}>
-                      <project.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-white leading-tight">{project.title}</h3>
-                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">{project.type}</p>
-                    </div>
+                <div className="relative mb-5 overflow-hidden rounded-xl border border-slate-100/80 dark:border-slate-700/60 bg-slate-100 dark:bg-slate-900 aspect-[16/10]">
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    className={`h-full w-full ${project.imageClassName} object-cover transition-transform duration-500 group-hover:scale-[1.03]`}
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent" />
+                  <div className="absolute left-4 top-4 flex items-center gap-2">
+                    <span className={`text-[11px] font-semibold px-3 py-1.5 rounded-full bg-gradient-to-r ${project.gradient} text-white shadow-sm`}>
+                      {project.category}
+                    </span>
+                    <span className="text-[11px] font-medium px-3 py-1.5 rounded-full bg-white/90 text-slate-700 backdrop-blur-sm">
+                      {project.type}
+                    </span>
                   </div>
                 </div>
 
-                {/* Category Badge */}
-                <div className="mb-3">
-                  <span className={`text-xs font-medium px-3 py-1 rounded-full bg-gradient-to-r ${project.gradient} text-white shadow-sm`}>
-                    {project.category}
-                  </span>
+                <div className="mb-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-white leading-tight mb-1.5">{project.title}</h3>
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Ontwerp, front-end en technische uitwerking in een compacte projectcase.</p>
                 </div>
 
                 {/* Description */}
