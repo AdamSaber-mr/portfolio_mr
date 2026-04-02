@@ -263,7 +263,7 @@ export function Contact() {
                   <motion.button
                     type="submit"
                     disabled={submitState === 'sending'}
-                    className="w-full px-6 py-4 bg-purple-600 text-white rounded-xl font-medium hover:bg-purple-700 hover:shadow-xl hover:shadow-purple-500/25 transition-all flex items-center justify-center gap-2"
+                    className="group/btn w-full px-6 py-4 bg-purple-600 text-white rounded-xl font-medium hover:bg-purple-700 hover:shadow-xl transition-all flex items-center justify-center gap-2"
                     whileHover={{ scale: 1.01, y: -1 }}
                     whileTap={{ scale: 0.99 }}
                   >

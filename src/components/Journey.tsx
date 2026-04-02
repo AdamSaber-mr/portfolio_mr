@@ -12,7 +12,7 @@ export function Journey() {
       icon: Palette,
       description: 'HTML, CSS, JavaScript, PHP - UI/UX design en implementatie',
       learning: 'Ontdekte dat ik meer uitdaging nodig had',
-      color: 'bg-blue-500',
+      color: 'var(--color-blue-500)',
     },
     {
       year: 'Jaar 2',
@@ -20,7 +20,7 @@ export function Journey() {
       icon: Server,
       description: 'PHP, JavaScript, MariaDB (SQL) - Server-side logica en databases',
       learning: 'Vond de diepere technische uitdagingen waar ik naar zocht',
-      color: 'bg-purple-500',
+      color: 'var(--color-blue-600)',
     },
     {
       year: 'Nu',
@@ -28,7 +28,7 @@ export function Journey() {
       icon: Layers,
       description: 'PHP, JavaScript, MariaDB/SQL – complete webapps bouwen van UI tot database',
       learning: 'Focus op praktijk en echte applicaties',
-      color: 'bg-blue-700',
+      color: 'var(--color-blue-700)',
     },
   ];
 
@@ -79,7 +79,8 @@ export function Journey() {
               >
                 <div className="absolute left-1/2 top-0 transform -translate-x-1/2 z-10">
                   <motion.div
-                    className={`p-3 sm:p-4 ${step.color} rounded-full shadow-md`}
+                    className="p-3 sm:p-4 rounded-full shadow-md"
+                    style={{ backgroundColor: step.color }}
                     animate={isInView ? { scale: [0, 1.1, 1] } : {}}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
                   >
@@ -95,7 +96,10 @@ export function Journey() {
                       whileHover={{ y: -4 }}
                     >
                       <div className="inline-block mb-3">
-                        <span className={`text-xs font-bold px-3 py-1 rounded-full ${step.color} text-white`}>
+                        <span
+                          className="text-xs font-bold px-3 py-1 rounded-full text-white"
+                          style={{ backgroundColor: step.color }}
+                        >
                           {step.year}
                         </span>
                       </div>

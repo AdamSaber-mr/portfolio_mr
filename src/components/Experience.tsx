@@ -46,7 +46,7 @@ export function Experience() {
             <div className="relative bg-white dark:bg-slate-800 p-5 sm:p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50">
               <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
-                  <div className="p-3 sm:p-4 bg-blue-600 rounded-xl shadow-sm shadow-blue-500/20">
+                  <div className="p-3 sm:p-4 bg-blue-600 rounded-xl shadow-sm">
                     <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                 </div>
@@ -91,7 +91,7 @@ export function Experience() {
             <div className="relative bg-white dark:bg-slate-800 p-5 sm:p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50">
               <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
-                  <div className="p-3 sm:p-4 bg-purple-600 rounded-xl shadow-sm shadow-purple-500/20">
+                  <div className="p-3 sm:p-4 bg-purple-600 rounded-xl shadow-sm">
                     <ShoppingBag className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export function Experience() {
                       const element = document.getElementById('contact');
                       if (element) element.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-xl font-medium shadow-lg shadow-blue-900/20 hover:shadow-xl transition-all group/btn"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all group/btn"
                     whileHover={{ scale: 1.03, y: -1 }}
                     whileTap={{ scale: 0.97 }}
                   >

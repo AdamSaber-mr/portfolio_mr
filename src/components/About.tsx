@@ -10,22 +10,22 @@ export function About() {
       icon: Wrench,
       title: 'Probleemoplosser',
       description: 'Ik werk graag gestructureerd en los problemen stap voor stap op tot het klopt.',
-      accent: 'bg-blue-500',
-      iconBg: 'bg-blue-600',
+      accentColor: 'var(--color-blue-500)',
+      iconBgColor: 'var(--color-blue-600)',
     },
     {
       icon: Target,
       title: 'Samenwerken & Communicatie',
       description: 'Ik communiceer duidelijk, werk prettig in teamverband en denk mee over wat er gebouwd moet worden.',
-      accent: 'bg-purple-500',
-      iconBg: 'bg-purple-600',
+      accentColor: 'var(--color-blue-600)',
+      iconBgColor: 'var(--color-blue-600)',
     },
     {
       icon: TrendingUp,
       title: 'Full-Stack Mindset',
       description: 'Ik combineer front-end met back-end en databases om complete webapps te bouwen.',
-      accent: 'bg-blue-600',
-      iconBg: 'bg-blue-700',
+      accentColor: 'var(--color-blue-700)',
+      iconBgColor: 'var(--color-blue-700)',
     },
   ];
 
@@ -100,10 +100,16 @@ export function About() {
                 className="relative group bg-white dark:bg-slate-800 p-5 sm:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 dark:border-slate-700/80 overflow-hidden flex-1"
               >
                 {/* Left accent border */}
-                <div className={`absolute left-0 top-0 bottom-0 w-1 ${item.accent} rounded-l-xl opacity-60 group-hover:opacity-100 transition-opacity`} />
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-1 rounded-l-xl opacity-60 group-hover:opacity-100 transition-opacity"
+                  style={{ backgroundColor: item.accentColor }}
+                />
                 
                 <div className="flex items-start gap-3 sm:gap-4">
-                  <div className={`p-2.5 sm:p-3 ${item.iconBg} rounded-xl flex-shrink-0 shadow-sm`}>
+                  <div
+                    className="p-2.5 sm:p-3 rounded-xl flex-shrink-0 shadow-sm"
+                    style={{ backgroundColor: item.iconBgColor }}
+                  >
                     <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>

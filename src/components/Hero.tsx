@@ -134,7 +134,7 @@ export function Hero() {
         >
           <motion.button
             onClick={scrollToAbout}
-            className="w-full sm:w-auto px-8 py-4 bg-purple-600 text-white rounded-xl hover:bg-purple-700 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 font-medium"
+            className="w-full sm:w-auto px-8 py-4 bg-purple-600 text-white rounded-xl hover:bg-purple-700 hover:shadow-xl transition-all duration-300 font-medium"
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >

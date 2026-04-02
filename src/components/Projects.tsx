@@ -11,7 +11,7 @@ export function Projects() {
       type: 'Klantproject',
       category: 'Full-Stack',
       icon: Car,
-      accent: 'bg-blue-600',
+      accentColor: 'var(--color-blue-600)',
       description: 'Moderne autoverhuur website voor een echte klant, gericht op het verhuren van sportieve auto\'s. Van klantgesprek tot ontwerp en oplevering volledig zelfstandig uitgevoerd.',
       tags: ['React', 'TypeScript', 'Vite', 'UI/UX Design', 'Klantproject'],
       highlights: [
@@ -30,7 +30,7 @@ export function Projects() {
       type: 'Schoolproject',
       category: 'Full-Stack',
       icon: UtensilsCrossed,
-      accent: 'bg-purple-600',
+      accentColor: 'var(--color-blue-700)',
       description: 'Full-stack food delivery webapp waarmee gebruikers ramen gerechten kunnen browsen, bestellen en afrekenen. Gebouwd met een mobile-first aanpak en een Japans-geïnspireerd design.',
       tags: ['PHP', 'MySQL', 'JavaScript', 'Python', 'Full-Stack'],
       highlights: [
@@ -49,7 +49,7 @@ export function Projects() {
       type: 'Teamproject – Front-End Developer',
       category: 'Front-End',
       icon: ShoppingBag,
-      accent: 'bg-blue-500',
+      accentColor: 'var(--color-blue-500)',
       description: 'Marketplace voor exclusieve luxeproducten zoals villa\'s, horloges en jachten. Binnen dit teamproject was ik verantwoordelijk voor de volledige front-end ontwikkeling.',
       tags: ['React', 'TypeScript', 'Next.js', 'Front-End', 'Responsive UI'],
       highlights: [
@@ -68,7 +68,7 @@ export function Projects() {
       type: 'Schoolproject',
       category: 'Back-End',
       icon: ChefHat,
-      accent: 'bg-purple-500',
+      accentColor: 'var(--color-blue-600)',
       description: 'Online platform dat jongeren inspireert om vaker zelf te koken. Gebruikers kunnen recepten ontdekken, delen en beheren via categorieën en een zoekfunctie.',
       tags: ['PHP', 'MySQL', 'JavaScript', 'CRUD', 'Authenticatie'],
       highlights: [
@@ -87,7 +87,7 @@ export function Projects() {
       type: 'Persoonlijk Project',
       category: 'Full-Stack',
       icon: Globe,
-      accent: 'bg-blue-700',
+      accentColor: 'var(--color-blue-700)',
       description: 'Mijn persoonlijke portfolio website gebouwd met React, TypeScript en Vite. Bevat projecten, vaardigheden, ervaring en een contactsectie met dark/light mode.',
       tags: ['React', 'TypeScript', 'Vite', 'Responsive Design'],
       highlights: [
@@ -159,7 +159,10 @@ export function Projects() {
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className={`p-2.5 sm:p-3 ${project.accent} rounded-xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 flex-shrink-0`}>
+                    <div
+                      className="p-2.5 sm:p-3 rounded-xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 flex-shrink-0"
+                      style={{ backgroundColor: project.accentColor }}
+                    >
                       <project.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <div>
@@ -171,7 +174,10 @@ export function Projects() {
 
                 {/* Category Badge */}
                 <div className="mb-3">
-                  <span className={`text-xs font-medium px-3 py-1 rounded-full ${project.accent} text-white shadow-sm`}>
+                  <span
+                    className="text-xs font-medium px-3 py-1 rounded-full text-white shadow-sm"
+                    style={{ backgroundColor: project.accentColor }}
+                  >
                     {project.category}
                   </span>
                 </div>
@@ -185,7 +191,10 @@ export function Projects() {
                 <div className="mb-4 space-y-2 flex-1">
                   {project.highlights.map((highlight, i) => (
                     <div key={i} className="flex items-start gap-2">
-                      <div className={`w-1.5 h-1.5 rounded-full ${project.accent} mt-2 flex-shrink-0`} />
+                      <div
+                        className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                        style={{ backgroundColor: project.accentColor }}
+                      />
                       <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{highlight}</p>
                     </div>
                   ))}

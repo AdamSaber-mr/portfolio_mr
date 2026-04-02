@@ -9,9 +9,9 @@ export function Skills() {
     {
       title: 'Backend Development',
       icon: Server,
-      color: 'bg-blue-600',
-      barColor: 'bg-blue-600',
-      hoverGlow: 'bg-blue-200/80 dark:bg-blue-900/30',
+      iconBgColor: 'var(--color-blue-600)',
+      barColor: 'var(--color-blue-600)',
+      hoverGlow: 'color-mix(in oklab, var(--color-blue-200) 80%, transparent)',
       skills: [
         { name: 'PHP', level: 75 },
         { name: 'SQL / MySQL / MariaDB', level: 70 },
@@ -21,9 +21,9 @@ export function Skills() {
     {
       title: 'Front-End Development',
       icon: Code2,
-      color: 'bg-purple-600',
-      barColor: 'bg-purple-600',
-      hoverGlow: 'bg-purple-200/80 dark:bg-purple-900/30',
+      iconBgColor: 'var(--color-blue-700)',
+      barColor: 'var(--color-blue-700)',
+      hoverGlow: 'color-mix(in oklab, var(--color-blue-200) 70%, transparent)',
       skills: [
         { name: 'HTML / CSS', level: 85 },
         { name: 'JavaScript', level: 80 },
@@ -34,9 +34,9 @@ export function Skills() {
     {
       title: 'Soft Skills',
       icon: Users,
-      color: 'bg-blue-500',
-      barColor: 'bg-blue-500',
-      hoverGlow: 'bg-blue-100 dark:bg-blue-900/20',
+      iconBgColor: 'var(--color-blue-500)',
+      barColor: 'var(--color-blue-500)',
+      hoverGlow: 'color-mix(in oklab, var(--color-blue-100) 90%, transparent)',
       skills: [
         { name: 'Communicatie', level: 85 },
         { name: 'Samenwerken', level: 85 },
@@ -47,9 +47,9 @@ export function Skills() {
     {
       title: 'In ontwikkeling',
       icon: Lightbulb,
-      color: 'bg-purple-500',
-      barColor: 'bg-purple-500',
-      hoverGlow: 'bg-purple-100 dark:bg-purple-900/20',
+      iconBgColor: 'var(--color-blue-600)',
+      barColor: 'var(--color-blue-600)',
+      hoverGlow: 'color-mix(in oklab, var(--color-blue-100) 80%, transparent)',
       skills: [
         { name: 'Next.js', level: 40, learning: true },
         { name: 'API Development', level: 45, learning: true },
@@ -95,11 +95,17 @@ export function Skills() {
               whileHover={{ y: -4 }}
               className="relative group h-full"
             >
-              <div className={`absolute -inset-[1px] ${category.hoverGlow} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div
+                className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ backgroundColor: category.hoverGlow }}
+              />
               
               <div className="relative bg-slate-50 dark:bg-slate-800 p-5 sm:p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50 h-full flex flex-col">
                 <div className="flex items-center gap-3 mb-5 sm:mb-6">
-                  <div className={`p-2.5 sm:p-3 ${category.color} rounded-xl flex-shrink-0 shadow-sm`}>
+                  <div
+                    className="p-2.5 sm:p-3 rounded-xl flex-shrink-0 shadow-sm"
+                    style={{ backgroundColor: category.iconBgColor }}
+                  >
                     <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-white">{category.title}</h3>
@@ -131,7 +137,8 @@ export function Skills() {
                           initial={{ width: 0 }}
                           animate={isInView ? { width: `${skill.level}%` } : {}}
                           transition={{ duration: 1.2, delay: categoryIndex * 0.1 + skillIndex * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                          className={`h-full ${category.barColor} rounded-full`}
+                          className="h-full rounded-full"
+                          style={{ backgroundColor: category.barColor }}
                         />
                       </div>
                     </div>
