@@ -11,7 +11,7 @@ export function Projects() {
       type: 'Klantproject',
       category: 'Full-Stack',
       icon: Car,
-      gradient: 'from-blue-500 to-cyan-500',
+      accent: 'bg-blue-600',
       description: 'Moderne autoverhuur website voor een echte klant, gericht op het verhuren van sportieve auto\'s. Van klantgesprek tot ontwerp en oplevering volledig zelfstandig uitgevoerd.',
       tags: ['React', 'TypeScript', 'Vite', 'UI/UX Design', 'Klantproject'],
       highlights: [
@@ -30,7 +30,7 @@ export function Projects() {
       type: 'Schoolproject',
       category: 'Full-Stack',
       icon: UtensilsCrossed,
-      gradient: 'from-purple-500 to-pink-500',
+      accent: 'bg-purple-600',
       description: 'Full-stack food delivery webapp waarmee gebruikers ramen gerechten kunnen browsen, bestellen en afrekenen. Gebouwd met een mobile-first aanpak en een Japans-geïnspireerd design.',
       tags: ['PHP', 'MySQL', 'JavaScript', 'Python', 'Full-Stack'],
       highlights: [
@@ -49,7 +49,7 @@ export function Projects() {
       type: 'Teamproject – Front-End Developer',
       category: 'Front-End',
       icon: ShoppingBag,
-      gradient: 'from-amber-500 to-orange-500',
+      accent: 'bg-blue-500',
       description: 'Marketplace voor exclusieve luxeproducten zoals villa\'s, horloges en jachten. Binnen dit teamproject was ik verantwoordelijk voor de volledige front-end ontwikkeling.',
       tags: ['React', 'TypeScript', 'Next.js', 'Front-End', 'Responsive UI'],
       highlights: [
@@ -68,7 +68,7 @@ export function Projects() {
       type: 'Schoolproject',
       category: 'Back-End',
       icon: ChefHat,
-      gradient: 'from-green-500 to-emerald-500',
+      accent: 'bg-purple-500',
       description: 'Online platform dat jongeren inspireert om vaker zelf te koken. Gebruikers kunnen recepten ontdekken, delen en beheren via categorieën en een zoekfunctie.',
       tags: ['PHP', 'MySQL', 'JavaScript', 'CRUD', 'Authenticatie'],
       highlights: [
@@ -87,7 +87,7 @@ export function Projects() {
       type: 'Persoonlijk Project',
       category: 'Full-Stack',
       icon: Globe,
-      gradient: 'from-blue-600 to-purple-500',
+      accent: 'bg-blue-700',
       description: 'Mijn persoonlijke portfolio website gebouwd met React, TypeScript en Vite. Bevat projecten, vaardigheden, ervaring en een contactsectie met dark/light mode.',
       tags: ['React', 'TypeScript', 'Vite', 'Responsive Design'],
       highlights: [
@@ -118,7 +118,7 @@ export function Projects() {
 
   return (
     <section id="projects" className="py-20 sm:py-28 px-4 sm:px-6 bg-white dark:bg-slate-900 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-950/10 dark:to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-50/60 dark:bg-blue-950/10 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative">
         <motion.div
@@ -128,9 +128,9 @@ export function Projects() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-600" />
+            <div className="h-px w-12 bg-blue-200 dark:bg-blue-900/50" />
             <span className="text-blue-600 dark:text-blue-400 font-medium text-sm tracking-wider uppercase">Portfolio</span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-600" />
+            <div className="h-px w-12 bg-blue-200 dark:bg-blue-900/50" />
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
             Mijn{' '}
@@ -153,14 +153,13 @@ export function Projects() {
               whileHover={{ y: -6 }}
               className={`relative group h-full ${index === projects.length - 1 && projects.length % 2 !== 0 ? 'md:col-span-2 md:max-w-[calc(50%-0.75rem)]  md:mx-auto' : ''}`}
             >
-              {/* Gradient border on hover */}
-              <div className={`absolute -inset-[1px] bg-gradient-to-br ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-25 transition-opacity duration-500 blur-[1px]`} />
+              <div className="absolute -inset-[1px] bg-slate-200 dark:bg-slate-700 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative bg-white dark:bg-slate-800 p-5 sm:p-6 rounded-2xl shadow-sm group-hover:shadow-xl transition-all duration-300 border border-slate-100/80 dark:border-slate-700/50 h-full flex flex-col">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className={`p-2.5 sm:p-3 bg-gradient-to-br ${project.gradient} rounded-xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 flex-shrink-0`}>
+                    <div className={`p-2.5 sm:p-3 ${project.accent} rounded-xl group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 flex-shrink-0`}>
                       <project.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <div>
@@ -172,7 +171,7 @@ export function Projects() {
 
                 {/* Category Badge */}
                 <div className="mb-3">
-                  <span className={`text-xs font-medium px-3 py-1 rounded-full bg-gradient-to-r ${project.gradient} text-white shadow-sm`}>
+                  <span className={`text-xs font-medium px-3 py-1 rounded-full ${project.accent} text-white shadow-sm`}>
                     {project.category}
                   </span>
                 </div>
@@ -186,7 +185,7 @@ export function Projects() {
                 <div className="mb-4 space-y-2 flex-1">
                   {project.highlights.map((highlight, i) => (
                     <div key={i} className="flex items-start gap-2">
-                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${project.gradient} mt-2 flex-shrink-0`} />
+                      <div className={`w-1.5 h-1.5 rounded-full ${project.accent} mt-2 flex-shrink-0`} />
                       <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{highlight}</p>
                     </div>
                   ))}
@@ -247,8 +246,8 @@ export function Projects() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-10 sm:mt-12 text-center"
         >
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 px-6 py-4 rounded-2xl border border-blue-100/80 dark:border-slate-700/50 shadow-sm">
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 animate-pulse" />
+          <div className="inline-flex items-center gap-3 bg-blue-50 dark:bg-slate-800 px-6 py-4 rounded-2xl border border-blue-100/80 dark:border-slate-700/50 shadow-sm">
+            <div className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
             <div>
               <p className="text-slate-700 dark:text-slate-300">
                 <span className="font-semibold">Altijd bezig met nieuwe projecten</span>

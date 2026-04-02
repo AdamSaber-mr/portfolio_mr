@@ -12,7 +12,7 @@ export function Journey() {
       icon: Palette,
       description: 'HTML, CSS, JavaScript, PHP - UI/UX design en implementatie',
       learning: 'Ontdekte dat ik meer uitdaging nodig had',
-      color: 'from-blue-400 to-cyan-400',
+      color: 'bg-blue-500',
     },
     {
       year: 'Jaar 2',
@@ -20,7 +20,7 @@ export function Journey() {
       icon: Server,
       description: 'PHP, JavaScript, MariaDB (SQL) - Server-side logica en databases',
       learning: 'Vond de diepere technische uitdagingen waar ik naar zocht',
-      color: 'from-purple-400 to-blue-400',
+      color: 'bg-purple-500',
     },
     {
       year: 'Nu',
@@ -28,12 +28,12 @@ export function Journey() {
       icon: Layers,
       description: 'PHP, JavaScript, MariaDB/SQL – complete webapps bouwen van UI tot database',
       learning: 'Focus op praktijk en echte applicaties',
-      color: 'from-purple-600 to-pink-500',
+      color: 'bg-blue-700',
     },
   ];
 
   return (
-    <section id="journey" className="py-20 sm:py-28 px-4 sm:px-6 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 relative overflow-hidden">
+    <section id="journey" className="py-20 sm:py-28 px-4 sm:px-6 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-0 w-72 h-72 bg-blue-200/20 dark:bg-blue-900/10 rounded-full blur-3xl" />
@@ -48,9 +48,9 @@ export function Journey() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-600" />
+            <div className="h-px w-12 bg-blue-200 dark:bg-blue-900/50" />
             <span className="text-blue-600 dark:text-blue-400 font-medium text-sm tracking-wider uppercase">Mijn Reis</span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-600" />
+            <div className="h-px w-12 bg-blue-200 dark:bg-blue-900/50" />
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
             Mijn{' '}
@@ -64,14 +64,8 @@ export function Journey() {
         </motion.div>
 
         <div className="relative">
-          {/* Connecting line with glow */}
           <div className="absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2">
-            <div className="absolute inset-0 bg-gradient-to-b from-blue-400 via-purple-400 to-pink-500" />
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-b from-blue-400 via-purple-400 to-pink-500 blur-sm"
-              animate={{ opacity: [0.3, 0.7, 0.3] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            />
+            <div className="absolute inset-0 bg-blue-200 dark:bg-blue-900/50" />
           </div>
 
           <div className="space-y-8 sm:space-y-12">
@@ -83,10 +77,9 @@ export function Journey() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="relative"
               >
-                {/* Icon in center on the line with glow */}
                 <div className="absolute left-1/2 top-0 transform -translate-x-1/2 z-10">
                   <motion.div
-                    className={`p-3 sm:p-4 bg-gradient-to-br ${step.color} rounded-full shadow-md`}
+                    className={`p-3 sm:p-4 ${step.color} rounded-full shadow-md`}
                     animate={isInView ? { scale: [0, 1.1, 1] } : {}}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
                   >
@@ -102,7 +95,7 @@ export function Journey() {
                       whileHover={{ y: -4 }}
                     >
                       <div className="inline-block mb-3">
-                        <span className={`text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r ${step.color} text-white`}>
+                        <span className={`text-xs font-bold px-3 py-1 rounded-full ${step.color} text-white`}>
                           {step.year}
                         </span>
                       </div>
@@ -131,16 +124,14 @@ export function Journey() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-12 sm:mt-16 text-center relative"
         >
-          {/* Connection line to final card */}
-          <div className="absolute left-1/2 bottom-full h-12 sm:h-16 w-0.5 bg-gradient-to-b from-pink-500 to-transparent transform -translate-x-1/2" />
+          <div className="absolute left-1/2 bottom-full h-12 sm:h-16 w-0.5 bg-blue-200 dark:bg-blue-900/50 transform -translate-x-1/2" />
           
           <motion.div
             className="inline-block relative group"
             whileHover={{ scale: 1.02, y: -2 }}
           >
-            {/* Animated glow behind the card */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-            <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 p-5 sm:p-6 rounded-2xl text-white shadow-lg">
+            <div className="absolute -inset-1 bg-purple-300/40 dark:bg-purple-900/20 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+            <div className="relative bg-purple-600 p-5 sm:p-6 rounded-2xl text-white shadow-lg">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Rocket className="w-5 h-5" />
                 <h4 className="text-lg sm:text-xl font-bold">Volgende Stap: Full-Stack stage & praktijkervaring</h4>

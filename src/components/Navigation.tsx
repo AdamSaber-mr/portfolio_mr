@@ -205,7 +205,7 @@ export function Navigation() {
                 transition={{ duration: 0.4, delay: 0.05 + navItems.length * 0.05 }}
                 className="pt-4 w-full"
               >
-                <div className="h-px w-full bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-600 to-transparent mb-4" />
+                <div className="h-px w-full bg-slate-200 dark:bg-slate-700 mb-4" />
                 <button
                   onClick={toggleTheme}
                   className="w-full flex items-center justify-center gap-3 py-4 text-xl font-semibold text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800"
