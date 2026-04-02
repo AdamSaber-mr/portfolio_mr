@@ -92,11 +92,11 @@ export function Hero() {
         >
           Hallo, ik ben{' '}
           <span className="relative inline-block">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient_3s_ease-in-out_infinite]">
+            <span className="text-blue-700 dark:text-blue-400">
               Adam Saber
             </span>
             <motion.span
-              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
+              className="absolute -bottom-2 left-0 right-0 h-1 bg-purple-400 rounded-full"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}

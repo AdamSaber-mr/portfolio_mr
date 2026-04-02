@@ -12,7 +12,7 @@ import { BackToTop } from './components/BackToTop';
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300 relative">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative">
         <Navigation />
         <Hero />
         <About />

@@ -45,7 +45,7 @@ export function About() {
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
             Leer mij{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">kennen</span>
+            <span className="text-blue-600 dark:text-blue-400">kennen</span>
           </h2>
           <p className="text-center text-slate-600 dark:text-slate-400 mb-14 sm:mb-16 max-w-2xl mx-auto">
             17 jaar | Zuid-Holland, Nederland | Software Development @ Grafisch Lyceum Rotterdam

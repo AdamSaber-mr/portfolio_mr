@@ -92,30 +92,30 @@
     --color-green-700: oklch(.527 .154 150.069);
     --color-green-900: oklch(.393 .095 152.535);
     --color-emerald-500: oklch(.696 .17 162.48);
-    --color-cyan-400: oklch(.789 .154 211.53);
-    --color-cyan-500: oklch(.715 .143 215.221);
-    --color-blue-50: oklch(.97 .014 254.604);
-    --color-blue-100: oklch(.932 .032 255.585);
-    --color-blue-200: oklch(.882 .059 254.128);
-    --color-blue-300: oklch(.809 .105 251.813);
-    --color-blue-400: oklch(.707 .165 254.624);
-    --color-blue-500: oklch(.623 .214 259.815);
-    --color-blue-600: oklch(.546 .245 262.881);
-    --color-blue-700: oklch(.488 .243 264.376);
-    --color-blue-800: oklch(.424 .199 265.638);
-    --color-blue-900: oklch(.379 .146 265.522);
-    --color-blue-950: oklch(.282 .091 267.935);
-    --color-purple-50: oklch(.977 .014 308.299);
-    --color-purple-100: oklch(.946 .033 307.174);
-    --color-purple-200: oklch(.902 .063 306.703);
-    --color-purple-300: oklch(.827 .119 306.383);
-    --color-purple-400: oklch(.714 .203 305.504);
-    --color-purple-500: oklch(.627 .265 303.9);
-    --color-purple-600: oklch(.558 .288 302.321);
-    --color-purple-700: oklch(.496 .265 301.924);
-    --color-purple-900: oklch(.381 .176 304.987);
-    --color-purple-950: oklch(.291 .149 302.717);
-    --color-pink-500: oklch(.656 .241 354.308);
+    --color-cyan-400: #96b0a0;
+    --color-cyan-500: #789486;
+    --color-blue-50: #f4f5ee;
+    --color-blue-100: #e3e8dc;
+    --color-blue-200: #cad5c1;
+    --color-blue-300: #a8ba9e;
+    --color-blue-400: #7f9975;
+    --color-blue-500: #5d7b56;
+    --color-blue-600: #456149;
+    --color-blue-700: #374d3b;
+    --color-blue-800: #2d3e31;
+    --color-blue-900: #243227;
+    --color-blue-950: #161f18;
+    --color-purple-50: #fbf6ee;
+    --color-purple-100: #f3e6d5;
+    --color-purple-200: #e6d0af;
+    --color-purple-300: #d4b281;
+    --color-purple-400: #bf8c58;
+    --color-purple-500: #aa6c3f;
+    --color-purple-600: #8b542f;
+    --color-purple-700: #714427;
+    --color-purple-900: #4f311f;
+    --color-purple-950: #2e1c14;
+    --color-pink-500: #a85746;
     --color-slate-50: oklch(.984 .003 247.858);
     --color-slate-100: oklch(.968 .007 247.896);
     --color-slate-200: oklch(.929 .013 255.508);
@@ -3376,7 +3376,7 @@ html {
 
 ::selection {
   color: inherit;
-  background: #6366f133;
+  background: #8b542f33;
 }
 
 @property --tw-translate-x {

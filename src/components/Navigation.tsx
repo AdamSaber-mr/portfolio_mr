@@ -61,7 +61,7 @@ export function Navigation() {
           <div className="flex justify-between items-center h-16">
             <motion.button
               onClick={() => scrollToSection('hero')}
-              className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative"
+              className="text-xl font-bold text-slate-900 dark:text-white relative"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

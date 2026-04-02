@@ -99,7 +99,7 @@ export function Contact() {
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4">
             Neem{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-blue-600 dark:text-blue-400">
               Contact Op
             </span>
           </h2>
@@ -302,7 +302,7 @@ export function Contact() {
         >
           <p className="text-sm text-slate-500 dark:text-slate-400">
             © 2026 Adam Saber · Gebouwd met{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-medium">
+            <span className="text-purple-700 dark:text-purple-300 font-medium">
               passie voor technologie
             </span>
           </p>
