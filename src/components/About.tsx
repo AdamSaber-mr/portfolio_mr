@@ -69,7 +69,7 @@ export function About() {
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Mijn Verhaal</h3>
                 </div>
                 <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
-                  Mijn naam is Adam Saber, 17 jaar, en ik studeer Software Development in mijn tweede leerjaar aan het Grafisch Lyceum Rotterdam. In het begin heb ik veel gewerkt aan front-end (HTML/CSS/JavaScript) en daarna ben ik mij steeds meer gaan richten op de back-end kant van webapps, zoals <span className="font-semibold text-blue-600 dark:text-blue-400">PHP en databases (MariaDB/SQL)</span>.
+                  Mijn naam is Adam Saber, 18 jaar, en ik studeer Software Development in mijn tweede leerjaar aan het Grafisch Lyceum Rotterdam. In het begin heb ik veel gewerkt aan front-end (HTML/CSS/JavaScript/React) en daarna ben ik mij steeds meer gaan richten op de back-end kant van webapps, zoals <span className="font-semibold text-blue-600 dark:text-blue-400">PHP en databases (MariaDB/SQL)</span>.
                 </p>
                 <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
                   Ik vind het leuk om ideeën om te zetten naar werkende applicaties en daarbij logisch na te denken over structuur, data en flow. Naast het bouwen vind ik samenwerken en helder communiceren belangrijk: goed begrijpen wat er nodig is en het daarna strak uitwerken.
